@@ -21,14 +21,14 @@ import {
     PanelContainer,
 } from '@sketchpixy/rubix';
 
-class InboxNavItem extends React.Component {
+class SubjectNavItem extends React.Component {
     render() {
         return (
             <Grid>
                 <Row>
                     <Col xs={8} collapseLeft collapseRight>
                         <Icon glyph={this.props.glyph} className='inbox-item-icon'/>
-                        <span>{this.props.title}</span>
+                        <span>  {this.props.title}</span>
                     </Col>
                     <Col xs={4} className='text-right' collapseLeft collapseRight>
                         <div style={{marginTop: 5}}><Label className={this.props.labelClass}>{this.props.labelValue}</Label></div>
@@ -55,7 +55,7 @@ class InboxNavTag extends React.Component {
 }
 
 @withRouter
-class InboxItem extends React.Component {
+class SubjectItem extends React.Component {
     handleClick(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -77,15 +77,14 @@ class InboxItem extends React.Component {
         return (
             <a {...linkProps}>
                 <div className='inbox-avatar'>
-                    <img src={this.props.src} width='40' height='40' className={this.props.imgClass + ' hidden-xs'} />
+                    <div className='inbox-date hidden-sm hidden-xs fg-darkgray40 text-right'>
+                        <div style={{position: 'relative'}}>{this.props.date}</div>
+                    </div>
                     <div className='inbox-avatar-name'>
                         <div className='fg-darkgrayishblue75'>{this.props.name}</div>
                         <div><small><Badge className={this.props.labelClass} style={{marginRight: 5, display: this.props.labelValue ? 'inline':'none'}}>{this.props.labelValue}</Badge><span>{this.props.description}</span></small></div>
                     </div>
-                    <div className='inbox-date hidden-sm hidden-xs fg-darkgray40 text-right'>
-                        <div style={{position: 'relative', top: 5}}>{this.props.date}</div>
-                        <div style={{position: 'relative', top: -5}}><small>#{this.props.itemId}</small></div>
-                    </div>
+
                 </div>
             </a>
         );
@@ -104,37 +103,33 @@ export default class Subjects extends React.Component {
     render() {
         return (
             <div>
-                <PanelContainer className='inbox' collapseBottom>
+                <PanelContainer className='subjects' collapseBottom>
                     <Panel>
                         <PanelBody style={{paddingTop: 0}}>
                             <Grid>
                                 <Row>
-                                    <Col xs={8} style={{paddingTop: 12.5}}>
+                                    <Col xs={8} style={{paddingTop: 12.5, paddingBottom: 12.5}}>
                                         <ButtonToolbar className='inbox-toolbar'>
                                             <ButtonGroup>
                                                 <Button bsStyle='blue' onClick={::this.handleClick}>
                                                     <Icon glyph='icon-fontello-edit-1'/>
                                                 </Button>
                                             </ButtonGroup>
-                                            <ButtonGroup>
-                                                <Button outlined onlyOnHover bsStyle='darkgreen45'><Icon glyph='icon-fontello-reply'/></Button>
-                                                <Button outlined onlyOnHover bsStyle='darkgreen45' className='hidden-xs'><Icon glyph='icon-fontello-reply-all-1'/></Button>
-                                                <Button outlined onlyOnHover bsStyle='darkgreen45'><Icon glyph='icon-fontello-forward'/></Button>
-                                            </ButtonGroup>
                                             <ButtonGroup className='hidden-xs'>
-                                                <Button outlined onlyOnHover bsStyle='danger' className='text-center'><Icon glyph='icon-fontello-attention-alt'/></Button>
+                                                <Button outlined onlyOnHover bsStyle='success' className='text-center'><Icon glyph=''/>Edit</Button>
                                                 <Button outlined onlyOnHover bsStyle='danger'><Icon glyph='icon-fontello-trash-1'/></Button>
                                             </ButtonGroup>
                                         </ButtonToolbar>
                                     </Col>
-                                    <Col xs={4} className='text-right'>
+                                    <Col xs={4} style={{paddingTop: 12.5, paddingBottom: 12.5}} className='text-right'>
                                         <div className='inbox-avatar'>
                                             <div className='inbox-avatar-name hidden-xs hidden-sm'>
-                                                <div>Annie Steenson</div>
+                                                <div>Subjects</div>
                                             </div>
                                         </div>
                                     </Col>
                                 </Row>
+
                             </Grid>
                             <hr style={{margin: 0}}/>
                             <Panel horizontal>
@@ -142,42 +137,32 @@ export default class Subjects extends React.Component {
                                     <Grid>
                                         <Row>
                                             <Col xs={12}>
-                                                <h6><small className='fg-darkgray'>MAILBOXES</small></h6>
+                                                <h6><small className='fg-darkgray'>SUBJECTS</small></h6>
                                                 <ListGroup className='list-bg-blue'>
                                                     <ListGroupItem active>
-                                                        <InboxNavItem glyph='icon-feather-mail' title='Inbox' labelClass='bg-white fg-blue' labelValue={58} />
+                                                        <SubjectNavItem title='Calculus' />
                                                     </ListGroupItem>
                                                     <ListGroupItem>
-                                                        <InboxNavItem glyph='icon-simple-line-icons-star' title='Starred' />
+                                                        <SubjectNavItem title='Physics' />
                                                     </ListGroupItem>
                                                     <ListGroupItem>
-                                                        <InboxNavItem glyph='icon-dripicons-return' title='Sent' />
+                                                        <SubjectNavItem title='Data Structures' />
                                                     </ListGroupItem>
                                                     <ListGroupItem>
-                                                        <InboxNavItem glyph='icon-feather-archive' title='Drafts' />
+                                                        <SubjectNavItem title='English' />
                                                     </ListGroupItem>
                                                     <ListGroupItem>
-                                                        <InboxNavItem glyph='icon-dripicons-attachment' title='Attachments' />
-                                                    </ListGroupItem>
-                                                </ListGroup>
-                                                <hr/>
-                                                <h6><small className='fg-darkgray'>OTHERS</small></h6>
-                                                <ListGroup>
-                                                    <ListGroupItem>
-                                                        <InboxNavItem glyph='icon-fontello-attention-alt' title='Spam' labelClass='bg-red fg-white' labelValue={10} />
-                                                    </ListGroupItem>
-                                                    <ListGroupItem>
-                                                        <InboxNavItem glyph='icon-fontello-trash-1' title='Trash' />
+                                                        <SubjectNavItem title='Algorithms' />
                                                     </ListGroupItem>
                                                 </ListGroup>
                                                 <hr/>
                                                 <h6><small className='fg-darkgray'>TAGS</small></h6>
                                                 <ListGroup>
                                                     <ListGroupItem>
-                                                        <InboxNavTag title='#sometag' badgeClass='bg-green fg-white' />
+                                                        <InboxNavTag title='#classes' badgeClass='bg-green fg-white' />
                                                     </ListGroupItem>
                                                     <ListGroupItem>
-                                                        <InboxNavTag title='#anothertag' badgeClass='bg-red fg-white' />
+                                                        <InboxNavTag title='#fun' badgeClass='bg-red fg-white' />
                                                     </ListGroupItem>
                                                 </ListGroup>
                                             </Col>
@@ -187,17 +172,12 @@ export default class Subjects extends React.Component {
                                 <PanelBody className='panel-sm-9 panel-xs-12' style={{ paddingTop: 0 }}>
                                     <Grid>
                                         <Row>
+                                            <h3>Content</h3>
                                             <Col xs={12}>
-                                                <InboxItem itemId={1} unread src='/imgs/app/avatars/avatar5.png' imgClass='border-green' name='Jordyn Ouellet (8)' labelValue='SOME LABEL' labelClass='bg-green fg-white' description={<span><strong>Early access: </strong><span><LoremIpsum query='1s'/></span></span>} date='Aug 20th' />
-                                                <InboxItem itemId={2} unread src='/imgs/app/avatars/avatar7.png' imgClass='border-orange' name='Toby King (4)' labelValue='SOME LABEL' labelClass='bg-orange fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 19th' />
-                                                <InboxItem itemId={3} unread src='/imgs/app/avatars/avatar9.png' imgClass='border-blue' name='Ava Parry' labelValue='SOME LABEL' labelClass='bg-blue fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 18th' />
-                                                <InboxItem itemId={4} unread src='/imgs/app/avatars/avatar10.png' imgClass='border-red' name='Angelina Mills' labelValue='SOME LABEL' labelClass='bg-red fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 17rd' />
-                                                <InboxItem itemId={5} src='/imgs/app/avatars/avatar11.png' imgClass='border-purple' name='Crystal Ford' labelValue='SOME LABEL' labelClass='bg-purple fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 16th' />
-                                                <InboxItem itemId={6} src='/imgs/app/avatars/avatar13.png' imgClass='border-brown' name='Ju Lan' labelValue='SOME LABEL' labelClass='bg-brown fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 15th' />
-                                                <InboxItem itemId={7} src='/imgs/app/avatars/avatar14.png' imgClass='border-pink' name='Lana Collin' labelValue='SOME LABEL' labelClass='bg-pink fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 14th' />
-                                                <InboxItem itemId={8} src='/imgs/app/avatars/avatar15.png' imgClass='border-darkcyan' name='Ricardo Ibarra' labelValue='SOME LABEL' labelClass='bg-darkcyan fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 13th' />
-                                                <InboxItem itemId={9} src='/imgs/app/avatars/avatar16.png' imgClass='border-orange75' name='The Unknown' labelValue='SOME LABEL' labelClass='bg-orange75 fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 12th' />
-                                                <InboxItem itemId={10} src='/imgs/app/avatars/avatar8.png' imgClass='border-yellow' name='Antelope Inc.' labelValue='SOME LABEL' labelClass='bg-yellow fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 11th' />
+                                                <SubjectItem itemId={1} unread  imgClass='border-green' name='Derivatives' labelValue='SOME LABEL' labelClass='bg-green fg-white' description={<span><strong>Early access: </strong><span><LoremIpsum query='1s'/></span></span>} date='Aug 20th' />
+                                                <SubjectItem itemId={2} unread  imgClass='border-orange' name='Integrals' labelValue='SOME LABEL' labelClass='bg-orange fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 19th' />
+                                                <SubjectItem itemId={3} unread  imgClass='border-blue' name='Summations' labelValue='SOME LABEL' labelClass='bg-blue fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 18th' />
+                                                <SubjectItem itemId={4} unread  imgClass='border-red' name='Rotations' labelValue='SOME LABEL' labelClass='bg-red fg-white' description={<span><LoremIpsum query='1s'/></span>} date='Aug 17rd' />
                                             </Col>
                                         </Row>
                                     </Grid>
