@@ -150,8 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\bundle.js" />
-    <Content Include="App_LocalResources\bundle.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\router.js" />
     <Content Include="Users.Context.tt">
@@ -223,14 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="App_GlobalResources\css\" />
-    <Folder Include="App_GlobalResources\fonts\" />
-    <Folder Include="App_GlobalResources\images\" />
-    <Folder Include="App_GlobalResources\js\" />
-    <Folder Include="App_LocalResources\css\" />
-    <Folder Include="App_LocalResources\fonts\" />
-    <Folder Include="App_LocalResources\images\" />
-    <Folder Include="App_LocalResources\js\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Login\" />
