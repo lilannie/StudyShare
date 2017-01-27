@@ -1,0 +1,109 @@
+$theme-blue: #1b6d85;
+$theme-blue-light: #d5f6f6;
+$theme-blue-dark: #114555;
+$grey: #333333;
+$grey-light: #E5E5E5;
+$grey-dark: #1a1a1a;
+$off-white: rgba(233, 237, 239, 0.8);
+$theme-pink: #ed6b75;
+$theme-pink-light: #f4a4ab;
+$theme-pink-dark: #e63342;
+
+.login {
+  background-color: #333333;
+  color: white;
+  position: relative;
+
+  .main {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 1000px;
+  }
+  .login-or {
+    position: relative;
+    font-size: 18px;
+    color: #333333;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .span-or {
+    background-color: $grey;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    color: white;
+    width: 50px;
+    text-align: center;
+  }
+
+  .hr-or {
+    background-color: $grey;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .header {
+    top: 100%;
+    h3 {
+      text-align: center;
+      line-height: 300%;
+    }
+    a {
+      color: $theme-pink;
+      padding: 5px 5px;
+      margin-left: 10px;
+    }
+    a:hover {
+      background-color: $grey-dark;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  }
+
+  .login-text {
+    color: $theme-pink-light;
+  }
+
+}
+
+.cover-container {
+  height: 250px;
+  margin-top: -25px;
+  background-color: black;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 25px;
+  background-position: center;
+}
+
+.cover {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.login-image {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-left: 38%;
+  margin-top: 100px;
+}
+
+.theme-button-pink {
+  background-color: $theme-pink;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+.theme-button-pink:hover {
+  background-color: $theme-pink-dark;
+  color: white;
+}

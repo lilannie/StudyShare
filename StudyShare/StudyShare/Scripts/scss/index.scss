@@ -1,0 +1,113 @@
+$theme-blue: #1b6d85;
+$theme-blue-dark: #114555;
+$theme-blue-light: #d5f6f6;
+$grey: #333333;
+$off-white: rgba(233, 237, 239, 1);
+$theme-pink: #ed6b75;
+$theme-dark-pink: #e63342;
+
+.index-page {
+
+  .index-body {
+    margin-top: 25px;
+  }
+  .portfolio-item {
+    margin-bottom: 25px;
+    margin-right: 25px;
+  }
+}
+
+.browse-card {
+  background-color: $theme-blue;
+  width: 300px;
+  height: 300px;
+  max-height: 500px;
+  overflow: scroll;
+  border-radius: 5px;
+
+  .browse-card-body {
+    padding: 1px;
+
+    .title {
+      color: white;
+      margin-bottom: 25px;
+
+    }
+
+    .description {
+      text-align: right;
+      color: $off-white;
+      font-size: 14px;
+
+      .body-list {
+        margin-left: -35px;
+      }
+
+      ul {
+        list-style: none;
+        text-align: left;
+
+        li {
+          font-size: 16px;
+          font-weight: bold;
+
+        }
+      }
+    }
+
+    .deck-caption {
+      float: right;
+      clear: right;
+      font-size: 18px;
+      font-weight: bolder;
+      background: $theme-blue-dark;
+      color: white;
+      padding: 10px 10px;
+      border-radius: 5px;
+    }
+  }
+
+  .footer {
+    background: #FFFFFF;
+
+  }
+}
+
+.ribbon {
+  background-color: $theme-pink;
+  color: white;
+  float: right;
+  clear: right;
+  padding: .5em 2em .5em 1em;
+  margin: 5px -15.2px 0 0;
+  z-index: 5;
+}
+
+.ribbon:hover {
+  background-color: $theme-dark-pink;
+}
+
+.browse-card:hover {
+  background-color: $theme-blue-dark;
+}
+
+.browse-link {
+  text-decoration: none;
+}
+
+.browse-link:hover {
+  text-decoration: none;
+}
+
+.browse-header {
+  h2 {
+    margin: 0px;
+  }
+  hr {
+    border: 0;
+    border-top: 5px solid $grey;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+}
