@@ -1,0 +1,65 @@
+.deck-item {
+  .services{
+    margin: auto;
+  }
+  figure.deck-figure {
+    color: #fff;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    text-align: left;
+    margin-right: 10px;
+    width: 100%;
+    border-radius: 10px;
+    min-height: 200px;
+    box-shadow: 5px 5px 5px #3c3c3c;
+  }
+  figure.deck-figure * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
+  figure.deck-figure figcaption {
+    position: absolute;
+    padding: 40px 25px;
+    top: 0;
+    left: 0;
+  }
+  figure.deck-figure h2,
+  figure.deck-figure p {
+    margin: 0;
+    padding: 0;
+  }
+  figure.deck-figure h2 {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  figure.deck-figure p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.4em;
+  }
+  figure.deck-figure a {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+  }
+  figure.deck-figure a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  figure.deck-figure.teal {
+    background-color: #1b6d85;
+    color: white;
+    font-weight: bolder;
+  }
+
+
+}

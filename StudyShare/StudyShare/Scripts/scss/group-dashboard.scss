@@ -1,0 +1,65 @@
+$theme-blue: #1b6d85;
+$theme-blue-light: #d5f6f6;
+$theme-blue-dark: #114555;
+$grey: #333333;
+$grey-light: #E5E5E5;
+$off-white: rgba(233, 237, 239, 0.8);
+$theme-pink: #ed6b75;
+$theme-pink-dark: #e63342;
+
+.group-dashboard {
+  margin-left: 200px;
+
+  .dashboard-content {
+    .container-fluid .row-fluid:first-child {
+      margin-top: 20px;
+    }
+
+    .container-fluid {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* Stat boxes and quick actions */
+    .content-container {
+      width: 100%;
+      text-align: center;
+      position: relative;
+      float: left;
+      margin-top: 10px;
+    }
+
+    .content-container .content-list .span3 {
+      width: 45%;
+    }
+
+    .content-list {
+      display: block;
+      list-style: none outside none;
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .content-list li {
+      float: left;
+      line-height: 50px;
+      margin: 0 10px 10px 0px;
+      min-width: 14%;
+      min-height: 50px;
+      background: $grey;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .content {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      min-height: 500px;
+      background-color: white;
+
+    }
+  }
+}

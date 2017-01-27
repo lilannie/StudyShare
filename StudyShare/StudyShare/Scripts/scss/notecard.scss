@@ -1,0 +1,340 @@
+$theme-blue: #1b6d85;
+$theme-blue-light: #d5f6f6;
+$theme-blue-dark: #114555;
+$grey: #333333;
+$grey-light: #E5E5E5;
+$off-white: rgba(233, 237, 239, 0.8);
+$card-back: $off-white;
+$zoom-scale: 1.2;
+
+
+.notecard-selector {
+  zoom: $zoom-scale;
+  transform:scale($zoom-scale);
+  -ms-transform:scale($zoom-scale);
+  -webkit-transform:scale($zoom-scale);
+  -o-transform:scale($zoom-scale);
+  -moz-transform:scale($zoom-scale);
+}
+
+.notecard-selector-container {
+  margin-top: 5px;
+  margin-left: 9px;
+}
+
+.notecard-sidebar {
+  background-color: $card-back;
+  padding: 5px 20px 5px 10px;
+  min-width: 200px;
+}
+
+.notecard-deck {
+  margin-left: 50px;
+  margin-top: 10px;
+
+}
+
+#save-deck {
+  background-color: $theme-blue;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#save-deck:hover {
+  background-color: $theme-blue-dark;
+}
+
+.notecard {
+  float: left;
+  margin: 10px;
+  -webkit-perspective: 600px;
+  border-radius: 10px;
+
+
+  .front, .back {
+    border: 0px solid black;
+    border-radius: 10px;
+    transition: -webkit-transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .front {
+    background-color: $theme-blue;
+    color: white;
+    width: 250px;
+    height: 330px;
+    position: absolute;
+    z-index: 1;
+
+    .panel-body {
+      padding: 10px;
+      height: 245px;
+    }
+
+    .panel-footer {
+      background-color: $theme-blue;
+
+      button {
+        background-color: white;
+        color: $theme-blue;
+        border-radius: 5px;
+        border: 1px solid white;
+      }
+      button:hover {
+        background: $grey-light;
+        border: 1px solid $grey-light;
+      }
+    }
+  }
+
+  .back {
+    background-color: $card-back;
+    color: $theme-blue;
+    width: 250px;
+    height: 330px;
+    -webkit-transform: rotateY(-180deg);
+
+    .panel-body {
+      padding: 10px;
+      height: 275px;
+    }
+
+    .panel-footer {
+      background-color: $card-back;
+
+      button {
+        background-color: $theme-blue;
+        color: white;
+        border-radius: 5px;
+        border: 0 solid black;
+      }
+      button:hover {
+        background-color: $theme-blue-dark;
+      }
+    }
+  }
+
+  .panel-footer {
+    border-radius: 10px;
+    border: 0 solid black;
+
+  }
+
+  .rotate-back {
+    -webkit-transform: rotateY(0);
+  }
+
+  .rotate-front {
+    -webkit-transform: rotateY(180deg);
+  }
+
+
+}
+
+.notecard-container {
+  .col-md-2 {
+    padding: 0px;
+    border-radius: 0px;
+
+  }
+  .col-md-10 {
+    padding: 0px;
+    border-radius: 0px;
+
+  }
+
+  #addCardModal {
+    margin-top: 100px;
+  }
+
+  button:hover, button:focus {
+    border-color: $theme-blue;
+    box-shadow: 0 0 10px $theme-blue;
+  }
+}
+
+.notecard-carousel {
+
+  .modal-dialog {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    opacity: 0.85;
+  }
+
+  .modal-content {
+    color: black;
+    border: 0px solid black;
+  }
+
+  .arrow {
+    .modal-content {
+      background: #b3ffff;
+    }
+  }
+
+  .modal-body {
+    height: 100%;
+
+    hr {
+      color: black;
+      background: black;
+    }
+  }
+}
+
+.carousel-left {
+  .modal-dialog {
+    //-webkit-animation-name: rotateLeft; /* Safari 4.0 - 8.0 */
+    //-webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    //-webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
+    //animation-name: rotateLeft;
+    //animation-duration: 2s;
+    //animation-iteration-count: 1;
+    -webkit-transform: rotateY(-60deg);
+    margin-left: 160px;
+  }
+}
+
+.carousel-right {
+  .modal-dialog {
+    //-webkit-animation-name: rotateRight; /* Safari 4.0 - 8.0 */
+    //-webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    //-webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
+    //animation-name: rotateRight;
+    //animation-duration: 2s;
+    //animation-iteration-count: 1;
+    -webkit-transform: rotateY(60deg);
+    margin-left: 1400px;
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes rotateLeft {
+    from {    -webkit-transform: rotateY(-90deg);  }
+    to {    -webkit-transform: rotateY(-60deg);  }
+}
+
+/* Standard syntax */
+@keyframes rotateLeft {
+    from {    -webkit-transform: rotateY(-90deg);  }
+    to {    -webkit-transform: rotateY(-60deg);  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes rotateRight {
+    from {    -webkit-transform: rotateY(0deg);  }
+    to {    -webkit-transform: rotateY(60deg);  }
+}
+
+/* Standard syntax */
+@keyframes rotateRight {
+  from {    -webkit-transform: rotateY(0deg);  }
+  to {    -webkit-transform: rotateY(60deg);  }
+}
+
+.carousel-left, .carousel-right {
+  .modal-content {
+    height: 404px;
+    width: 350px;
+  }
+}
+
+.carousel-left-arrow {
+  .modal-dialog {
+    margin-left: 610px;
+  }
+
+  .left-arrow {
+    .fa-angle-left {
+      margin-left: 13px;
+      color: $theme-blue;
+    }
+  }
+
+  .left-plus {
+    .fa-plus {
+      margin-left: 13px;
+      color: $theme-blue;
+    }
+  }
+}
+
+.carousel-right-arrow {
+  .modal-dialog {
+    margin-left: 1252px;
+  }
+
+  .right-arrow {
+    .fa-angle-right {
+      margin-left: 19px;
+      color: $theme-blue;
+    }
+  }
+
+  .right-plus {
+    .fa-plus {
+      margin-left: 13px;
+      color: $theme-blue;
+    }
+  }
+}
+
+.carousel-left-arrow, .carousel-right-arrow {
+  .modal-dialog {
+    margin-top: 40px;
+    opacity: .70;
+  }
+
+  .modal-content {
+    height: 300px;
+    width: 50px;
+  }
+
+  .modal-dialog:hover {
+    opacity: 1;
+  }
+}
+
+.center-vertical {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-left, .carousel-left-arrow {
+  .card-blue {
+    .modal-content {
+      background: -webkit-linear-gradient(left, #1b6d85, #d5f6f6);
+    }
+  }
+
+  .card-grey {
+    .modal-content {
+      background: -webkit-linear-gradient(left, #000000, #333333);
+    }
+  }
+}
+
+.carousel-right, .carousel-right-arrow {
+  .card-blue {
+    .modal-content {
+      background: -webkit-linear-gradient(left, #d5f6f6, #1b6d85);
+    }
+  }
+
+  .card-grey {
+    .modal-content {
+      background: -webkit-linear-gradient(left, #333333, #000000);
+    }
+  }
+}
+.notecard-create {
+  .modal-footer {
+    button.btn-primary {
+        background: $theme-blue;
+    }
+  }
+}
