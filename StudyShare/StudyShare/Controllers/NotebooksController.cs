@@ -10,103 +10,107 @@ using StudyShare;
 
 namespace StudyShare.Controllers
 {
-    public class UsersController : Controller
+    public class NotebooksController : Controller
     {
         private UsersSettings db = new UsersSettings();
 
-        // GET: Users
+        // GET: Notebooks
         public ActionResult Index()
         {
-            return Json(db.Users.ToList(), JsonRequestBehavior.AllowGet);
+            return View(db.Notebooks.ToList());
         }
 
-        // GET: Users/Details/5
+        // GET: Notebooks/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            return Json(user, JsonRequestBehavior.AllowGet);
+            Notebook notebook = db.Notebooks.Find(id);
+            if (notebook == null)
+            {
+                return HttpNotFound();
+            }
+            return Json(notebook, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Users/Create
+        // GET: Notebooks/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Notebooks/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Username,FirstName,LastName,Email,AccountCreatedOnDate,LastLoggin,isAdmin,isTeacher")] User user)
+        public ActionResult Create([Bind(Include = "Id,NotebookOwner,DateCreated,LastModified,Title,Desctiption,Body")] Notebook notebook)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Notebooks.Add(notebook);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return Json(notebook, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Users/Edit/5
+        // GET: Notebooks/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Notebook notebook = db.Notebooks.Find(id);
+            if (notebook == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return Json(notebook, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Users/Edit/5
+        // POST: Notebooks/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Username,FirstName,LastName,Email,AccountCreatedOnDate,LastLoggin,isAdmin,isTeacher")] User user)
+        public ActionResult Edit([Bind(Include = "Id,NotebookOwner,DateCreated,LastModified,Title,Desctiption,Body")] Notebook notebook)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(notebook).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return Json(notebook, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Users/Delete/5
+        // GET: Notebooks/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Notebook notebook = db.Notebooks.Find(id);
+            if (notebook == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return Json(notebook, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Users/Delete/5
+        // POST: Notebooks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Notebook notebook = db.Notebooks.Find(id);
+            db.Notebooks.Remove(notebook);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -33,5 +33,214 @@
   <EntityContainer Name="UsersSettings" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+    <EntitySet Name="Comments" EntityType="usersModel.Comment" />
+    <EntitySet Name="Comment_Keyword" EntityType="usersModel.Comment_Keyword" />
+    <EntitySet Name="Keywords" EntityType="usersModel.Keyword" />
+    <EntitySet Name="Notecards" EntityType="usersModel.Notecard" />
+    <EntitySet Name="User_Keyword" EntityType="usersModel.User_Keyword" />
+    <EntitySet Name="Decks" EntityType="usersModel.Deck" />
+    <EntitySet Name="Deck_Keywords" EntityType="usersModel.Deck_Keywords" />
+    <EntitySet Name="Groups" EntityType="usersModel.Group" />
+    <EntitySet Name="Group_Content" EntityType="usersModel.Group_Content" />
+    <EntitySet Name="Group_Keywords" EntityType="usersModel.Group_Keywords" />
+    <EntitySet Name="Group_Memebers" EntityType="usersModel.Group_Memebers" />
+    <EntitySet Name="Notes" EntityType="usersModel.Note" />
+    <EntitySet Name="Notebooks" EntityType="usersModel.Notebook" />
+    <EntitySet Name="Notebook_Keyword" EntityType="usersModel.Notebook_Keyword" />
+    <EntitySet Name="Notecard_Deck" EntityType="usersModel.Notecard_Deck" />
+    <EntitySet Name="Note_Keyword" EntityType="usersModel.Note_Keyword" />
+    <EntitySet Name="Note_Notebook" EntityType="usersModel.Note_Notebook" />
+    <EntitySet Name="Ratings" EntityType="usersModel.Rating" />
+    <EntitySet Name="Subjects" EntityType="usersModel.Subject" />
+    <EntitySet Name="Subject_Keywords" EntityType="usersModel.Subject_Keywords" />
   </EntityContainer>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Owner" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Body" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="NoteId" Type="Int32" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="NotebookId" Type="Int32" />
+    <Property Name="NotecardId" Type="Int32" />
+    <Property Name="DeckId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Comment_Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KeywordId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Word" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Notecard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Owner" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <Property Name="LastModified" Type="DateTime" Precision="3" />
+    <Property Name="Font" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Back" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeckId" Type="Int32" />
+    <Property Name="Rating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User_Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KeywordId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Deck">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Owner" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Precision="0" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="Rating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Deck_Keywords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KeywordId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Owner" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Precision="0" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Group_Content">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ContentId" Type="Int32" />
+    <Property Name="ContentType" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Group_Keywords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KeywordId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Group_Memebers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Memeber" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CardDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="NotebookId" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Precision="0" />
+    <Property Name="NoteOwner" Type="Int32" />
+    <Property Name="Rating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Notebook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="NotebookOwner" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Precision="0" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Desctiption" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Body" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Notebook_Keyword">
+    <Key>
+      <PropertyRef Name="NotecardId" />
+    </Key>
+    <Property Name="NotecardId" Type="Int32" Nullable="false" />
+    <Property Name="KeywordId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Notecard_Deck">
+    <Key>
+      <PropertyRef Name="NotecardId" />
+    </Key>
+    <Property Name="NotecardId" Type="Int32" Nullable="false" />
+    <Property Name="DeckId" Type="Int32" />
+    <Property Name="Order" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Note_Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KeywordId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Note_Notebook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="NotebookId" Type="Int32" />
+    <Property Name="NotebookOrder" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MadeBy" Type="Int32" />
+    <Property Name="RefFor" Type="Int32" />
+    <Property Name="Rate" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Owner" Type="Int32" />
+    <Property Name="DateCreated" Type="DateTime" Precision="0" />
+    <Property Name="LastModified" Type="DateTime" Precision="0" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Subject_Keywords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="KeywardId" Type="Int32" />
+  </EntityType>
 </Schema>

@@ -1,5 +1,194 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="usersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Owner" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" Nullable="false" />
+    <Property Name="LastModified" Type="date" Nullable="false" />
+    <Property Name="Body" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="NoteId" Type="int" />
+    <Property Name="SubjectId" Type="int" />
+    <Property Name="NotebookId" Type="int" />
+    <Property Name="NotecardId" Type="int" />
+    <Property Name="DeckId" Type="int" />
+  </EntityType>
+  <EntityType Name="Comment-Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="KeywordId" Type="int" />
+  </EntityType>
+  <EntityType Name="Deck">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Owner" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastModified" Type="date" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="SubjectId" Type="int" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <EntityType Name="Deck-Keywords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="KeywordId" Type="int" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Owner" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastModified" Type="date" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <EntityType Name="Group-Content">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ContentId" Type="int" />
+    <Property Name="ContentType" Type="int" />
+  </EntityType>
+  <EntityType Name="Group-Keywords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="KeywordId" Type="int" />
+  </EntityType>
+  <EntityType Name="Group-Memebers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Memeber" Type="int" />
+  </EntityType>
+  <EntityType Name="Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Word" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" />
+    <Property Name="CardDescription" Type="varchar" MaxLength="50" />
+    <Property Name="SubjectId" Type="int" />
+    <Property Name="NotebookId" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastModified" Type="date" />
+    <Property Name="NoteOwner" Type="int" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <EntityType Name="Notebook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NotebookOwner" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastModified" Type="date" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Desctiption" Type="varchar" MaxLength="200" />
+    <Property Name="Body" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Notebook-Keyword">
+    <Key>
+      <PropertyRef Name="NotecardId" />
+    </Key>
+    <Property Name="NotecardId" Type="int" Nullable="false" />
+    <Property Name="KeywordId" Type="int" />
+  </EntityType>
+  <EntityType Name="Notecard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Owner" Type="int" />
+    <Property Name="DateCreated" Type="datetime" />
+    <Property Name="LastModified" Type="datetime" />
+    <Property Name="Font" Type="varchar" MaxLength="50" />
+    <Property Name="Back" Type="varchar" MaxLength="50" />
+    <Property Name="DeckId" Type="int" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <EntityType Name="Notecard-Deck">
+    <Key>
+      <PropertyRef Name="NotecardId" />
+    </Key>
+    <Property Name="NotecardId" Type="int" Nullable="false" />
+    <Property Name="DeckId" Type="int" />
+    <Property Name="Order" Type="int" />
+  </EntityType>
+  <EntityType Name="Note-Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="KeywordId" Type="int" />
+  </EntityType>
+  <EntityType Name="Note-Notebook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="NotebookId" Type="int" />
+    <Property Name="NotebookOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MadeBy" Type="int" />
+    <Property Name="RefFor" Type="int" />
+    <Property Name="Rate" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastModified" Type="date" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Owner" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="LastModified" Type="date" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <EntityType Name="Subject-Keywords">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="KeywardId" Type="int" />
+  </EntityType>
+  <EntityType Name="User-Keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="KeywordId" Type="int" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="Id" />
@@ -33,6 +222,26 @@ warning 6002: The table/view 'users.sys.database_firewall_rules' does not have a
     <Property Name="modify_date" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityContainer Name="usersModelStoreContainer">
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment-Keyword" EntityType="Self.Comment-Keyword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deck" EntityType="Self.Deck" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deck-Keywords" EntityType="Self.Deck-Keywords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group-Content" EntityType="Self.Group-Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group-Keywords" EntityType="Self.Group-Keywords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group-Memebers" EntityType="Self.Group-Memebers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Keyword" EntityType="Self.Keyword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Note" EntityType="Self.Note" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notebook" EntityType="Self.Notebook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notebook-Keyword" EntityType="Self.Notebook-Keyword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notecard" EntityType="Self.Notecard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notecard-Deck" EntityType="Self.Notecard-Deck" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Note-Keyword" EntityType="Self.Note-Keyword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Note-Notebook" EntityType="Self.Note-Notebook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject-Keywords" EntityType="Self.Subject-Keywords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User-Keyword" EntityType="Self.User-Keyword" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
       <DefiningQuery>SELECT 

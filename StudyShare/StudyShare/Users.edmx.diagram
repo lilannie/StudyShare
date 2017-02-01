@@ -5,8 +5,28 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f70e5cd8d05b41c789acd07b799affde" Name="Diagram1">
-        <EntityTypeShape EntityType="usersModel.User" Width="1.5" PointX="2" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="usersModel.User" Width="1.5" PointX="0.5" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="usersModel.database_firewall_rules" Width="1.5" PointX="3.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="usersModel.Comment" Width="1.5" PointX="3.25" PointY="4.625" />
+        <EntityTypeShape EntityType="usersModel.Comment_Keyword" Width="1.5" PointX="9.125" PointY="5.75" />
+        <EntityTypeShape EntityType="usersModel.Keyword" Width="1.5" PointX="7.25" PointY="5.75" />
+        <EntityTypeShape EntityType="usersModel.Notecard" Width="1.5" PointX="8.625" PointY="0.75" />
+        <EntityTypeShape EntityType="usersModel.User_Keyword" Width="1.5" PointX="9.125" PointY="4" />
+        <EntityTypeShape EntityType="usersModel.Deck" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="usersModel.Deck_Keywords" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="usersModel.Group" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="usersModel.Group_Content" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="usersModel.Group_Keywords" Width="1.5" PointX="6.75" PointY="8.75" />
+        <EntityTypeShape EntityType="usersModel.Group_Memebers" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="usersModel.Note" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="usersModel.Notebook" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="usersModel.Notebook_Keyword" Width="1.5" PointX="11.75" PointY="4.75" />
+        <EntityTypeShape EntityType="usersModel.Notecard_Deck" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="usersModel.Note_Keyword" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="usersModel.Note_Notebook" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="usersModel.Rating" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="usersModel.Subject" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="usersModel.Subject_Keywords" Width="1.5" PointX="12.75" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

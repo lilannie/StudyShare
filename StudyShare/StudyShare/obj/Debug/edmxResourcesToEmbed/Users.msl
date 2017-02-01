@@ -28,5 +28,214 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="usersModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="DeckId" ColumnName="DeckId" />
+          <ScalarProperty Name="NotecardId" ColumnName="NotecardId" />
+          <ScalarProperty Name="NotebookId" ColumnName="NotebookId" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="NoteId" ColumnName="NoteId" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comment_Keyword">
+      <EntityTypeMapping TypeName="usersModel.Comment_Keyword">
+        <MappingFragment StoreEntitySet="Comment-Keyword">
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Keywords">
+      <EntityTypeMapping TypeName="usersModel.Keyword">
+        <MappingFragment StoreEntitySet="Keyword">
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notecards">
+      <EntityTypeMapping TypeName="usersModel.Notecard">
+        <MappingFragment StoreEntitySet="Notecard">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="DeckId" ColumnName="DeckId" />
+          <ScalarProperty Name="Back" ColumnName="Back" />
+          <ScalarProperty Name="Font" ColumnName="Font" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Keyword">
+      <EntityTypeMapping TypeName="usersModel.User_Keyword">
+        <MappingFragment StoreEntitySet="User-Keyword">
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Decks">
+      <EntityTypeMapping TypeName="usersModel.Deck">
+        <MappingFragment StoreEntitySet="Deck">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deck_Keywords">
+      <EntityTypeMapping TypeName="usersModel.Deck_Keywords">
+        <MappingFragment StoreEntitySet="Deck-Keywords">
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="usersModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group_Content">
+      <EntityTypeMapping TypeName="usersModel.Group_Content">
+        <MappingFragment StoreEntitySet="Group-Content">
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group_Keywords">
+      <EntityTypeMapping TypeName="usersModel.Group_Keywords">
+        <MappingFragment StoreEntitySet="Group-Keywords">
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group_Memebers">
+      <EntityTypeMapping TypeName="usersModel.Group_Memebers">
+        <MappingFragment StoreEntitySet="Group-Memebers">
+          <ScalarProperty Name="Memeber" ColumnName="Memeber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="usersModel.Note">
+        <MappingFragment StoreEntitySet="Note">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="NoteOwner" ColumnName="NoteOwner" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="NotebookId" ColumnName="NotebookId" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="CardDescription" ColumnName="CardDescription" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notebooks">
+      <EntityTypeMapping TypeName="usersModel.Notebook">
+        <MappingFragment StoreEntitySet="Notebook">
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Desctiption" ColumnName="Desctiption" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="NotebookOwner" ColumnName="NotebookOwner" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notebook_Keyword">
+      <EntityTypeMapping TypeName="usersModel.Notebook_Keyword">
+        <MappingFragment StoreEntitySet="Notebook-Keyword">
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+          <ScalarProperty Name="NotecardId" ColumnName="NotecardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notecard_Deck">
+      <EntityTypeMapping TypeName="usersModel.Notecard_Deck">
+        <MappingFragment StoreEntitySet="Notecard-Deck">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="DeckId" ColumnName="DeckId" />
+          <ScalarProperty Name="NotecardId" ColumnName="NotecardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Note_Keyword">
+      <EntityTypeMapping TypeName="usersModel.Note_Keyword">
+        <MappingFragment StoreEntitySet="Note-Keyword">
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Note_Notebook">
+      <EntityTypeMapping TypeName="usersModel.Note_Notebook">
+        <MappingFragment StoreEntitySet="Note-Notebook">
+          <ScalarProperty Name="NotebookOrder" ColumnName="NotebookOrder" />
+          <ScalarProperty Name="NotebookId" ColumnName="NotebookId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="usersModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="RefFor" ColumnName="RefFor" />
+          <ScalarProperty Name="MadeBy" ColumnName="MadeBy" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="usersModel.Subject">
+        <MappingFragment StoreEntitySet="Subject">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subject_Keywords">
+      <EntityTypeMapping TypeName="usersModel.Subject_Keywords">
+        <MappingFragment StoreEntitySet="Subject-Keywords">
+          <ScalarProperty Name="KeywardId" ColumnName="KeywardId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

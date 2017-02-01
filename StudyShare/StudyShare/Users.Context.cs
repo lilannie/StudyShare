@@ -27,5 +27,25 @@ namespace StudyShare
     
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Comment_Keyword> Comment_Keyword { get; set; }
+        public virtual DbSet<Keyword> Keywords { get; set; }
+        public virtual DbSet<Notecard> Notecards { get; set; }
+        public virtual DbSet<User_Keyword> User_Keyword { get; set; }
+        public virtual DbSet<Deck> Decks { get; set; }
+        public virtual DbSet<Deck_Keywords> Deck_Keywords { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Group_Content> Group_Content { get; set; }
+        public virtual DbSet<Group_Keywords> Group_Keywords { get; set; }
+        public virtual DbSet<Group_Memebers> Group_Memebers { get; set; }
+        public virtual DbSet<Note> Notes { get; set; }
+        public virtual DbSet<Notebook> Notebooks { get; set; }
+        public virtual DbSet<Notebook_Keyword> Notebook_Keyword { get; set; }
+        public virtual DbSet<Notecard_Deck> Notecard_Deck { get; set; }
+        public virtual DbSet<Note_Keyword> Note_Keyword { get; set; }
+        public virtual DbSet<Note_Notebook> Note_Notebook { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<Subject_Keywords> Subject_Keywords { get; set; }
     }
 }

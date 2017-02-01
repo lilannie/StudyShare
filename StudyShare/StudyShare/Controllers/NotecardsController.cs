@@ -10,103 +10,107 @@ using StudyShare;
 
 namespace StudyShare.Controllers
 {
-    public class UsersController : Controller
+    public class NotecardsController : Controller
     {
         private UsersSettings db = new UsersSettings();
 
-        // GET: Users
+        // GET: Notecards
         public ActionResult Index()
         {
-            return Json(db.Users.ToList(), JsonRequestBehavior.AllowGet);
+            return Json(db.Notecards.ToList(), JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Users/Details/5
+        // GET: Notecards/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            return Json(user, JsonRequestBehavior.AllowGet);
+            Notecard notecard = db.Notecards.Find(id);
+            if (notecard == null)
+            {
+                return HttpNotFound();
+            }
+            return Json(notecard, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Users/Create
+        // GET: Notecards/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Notecards/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Username,FirstName,LastName,Email,AccountCreatedOnDate,LastLoggin,isAdmin,isTeacher")] User user)
+        public ActionResult Create([Bind(Include = "Id,Owner,DateCreated,LastModified,Font,Back,DeckId,Rating")] Notecard notecard)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Notecards.Add(notecard);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(notecard);
         }
 
-        // GET: Users/Edit/5
+        // GET: Notecards/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Notecard notecard = db.Notecards.Find(id);
+            if (notecard == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(notecard);
         }
 
-        // POST: Users/Edit/5
+        // POST: Notecards/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Username,FirstName,LastName,Email,AccountCreatedOnDate,LastLoggin,isAdmin,isTeacher")] User user)
+        public ActionResult Edit([Bind(Include = "Id,Owner,DateCreated,LastModified,Font,Back,DeckId,Rating")] Notecard notecard)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(notecard).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return Json(notecard, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Users/Delete/5
+        // GET: Notecards/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Notecard notecard = db.Notecards.Find(id);
+            if (notecard == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return Json(notecard, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Users/Delete/5
+        // POST: Notecards/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Notecard notecard = db.Notecards.Find(id);
+            db.Notecards.Remove(notecard);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
